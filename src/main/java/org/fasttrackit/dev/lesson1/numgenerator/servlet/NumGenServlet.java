@@ -70,6 +70,10 @@ public class NumGenServlet extends HttpServlet {
             boolean isANumber = true;
             try {
                 iGuessNumber = Integer.parseInt(requestGuessNumber);
+                //int x=getMaxnumber();
+                if ((iGuessNumber<0) ) {
+                    isANumber = false;
+                }
             } catch (NumberFormatException e) {
                 isANumber = false;
             }
@@ -79,13 +83,13 @@ public class NumGenServlet extends HttpServlet {
                 String hint = nbl.getHint();
                 int nrGuesses = nbl.getNumGuesses();
                 jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
-
+                if (success) {
+                    session.setAttribute(SESSION_KEY_RESTART, VALUE_INIT);                }
             } else {
                 jsonResponse = "{\"keyError\":\"WRONGNUMBERFORMAT\"}";
             }
 
             returnJsonResponse(response, jsonResponse);
-
         }
     }
 
