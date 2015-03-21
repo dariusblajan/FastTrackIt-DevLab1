@@ -82,9 +82,12 @@ public class NumGenServlet extends HttpServlet {
                 boolean success = nbl.determineGuess(iGuessNumber);
                 String hint = nbl.getHint();
                 int nrGuesses = nbl.getNumGuesses();
-                jsonResponse = "{\"keySuccess\":\"" + success + "\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
                 if (success) {
-                    session.setAttribute(SESSION_KEY_RESTART, VALUE_INIT);                }
+                    session.setAttribute(SESSION_KEY_RESTART, VALUE_INIT);
+                    jsonResponse = "{\"keySuccess\":\"true\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses +  "\", \"keyGeneratedNumber\":\"" + iGuessNumber + "\"}";
+                } else {
+                    jsonResponse = "{\"keySuccess\":\"false\", \"keyHint\":\"" + hint + "\", \"keyNrGuesses\":\"" + nrGuesses + "\"}";
+                }
             } else {
                 jsonResponse = "{\"keyError\":\"WRONGNUMBERFORMAT\"}";
             }

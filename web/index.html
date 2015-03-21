@@ -47,19 +47,20 @@ FastTrackIT 2015
                  var jSonMessage = JSON.parse(xmlHttp.responseText);
                  var keyRestartGame=jSonMessage.keyRestartGame;
                  if (keyRestartGame != undefined && keyRestartGame.length > 0) {
-                     alert("Restart cu succes, jocul a reinceput!");
+                     alert("Restart successfull! New game commencing now!");
                      document.getElementById("number").value="";
                      return;
                  }
 
                  var keyError = jSonMessage.keyError;
                  if (keyError != undefined && keyError.length > 0) {
-                     alert("Trebuie sa introduceti un numar valid!");
+                     alert("Oh, please, enter a valid number!");
                      return;
                  }
                 var keySuccess = jSonMessage.keySuccess;
                  var keyHint = jSonMessage.keyHint;
                  var keyNrGuesses = jSonMessage.keyNrGuesses;
+                 var keyGeneratedNumber = jSonMessage.keyGeneratedNumber;
 
                  if(keySuccess=="false") {
                      if (keyHint == "higher")
@@ -70,9 +71,9 @@ FastTrackIT 2015
                  else
                  if(keySuccess=="true")
                  {
-                     /*document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + document.getElementById("number").value + " after " + keyNrGuesses + " guesses.";*/
-                     alert("Congrats, you guessed the number out of "+ keyNrGuesses+ "guesses.");
-                     return;
+                     document.getElementById("serverResponse").innerHTML = "Congrats, you guessed the number " + keyGeneratedNumber + " after " + keyNrGuesses + " guesses. Game will now restart.";
+                     /*alert("Congrats, you guessed the number out of "+ keyNrGuesses+ " guesses.");
+                     return;*/
                  }
              }
          }
