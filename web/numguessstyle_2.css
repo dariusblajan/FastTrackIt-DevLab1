@@ -23,11 +23,18 @@ h1 {
     padding-bottom: .2em;
     padding-left: .4em;
     margin: 0;
+    font-face: myFirstFont;
 }
 
-a {
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+
+a{
 color: white;
 text-decoration: none;
+
 }
 
 #tagline p {
@@ -46,18 +53,6 @@ text-decoration: none;
     position: absolute;
     border-top: 3px solid white;
     width: 100%;
-}
-
-#mainbontent {
-
-}
-
-#text-number {
-    color: red;
-}
-
-#number {
-    border-color: red;
 }
 
 #navigation {
@@ -97,7 +92,7 @@ text-decoration: none;
     left: 140px;
     width: 200px;
     background-color: white;
-    color: red;
+    color: black;
     padding-left: .8em;
 
 }
