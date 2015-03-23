@@ -7,15 +7,37 @@ FastTrackIT 2015
 
 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Our first Lab</title>
       <meta charset="utf-8"/>
-      <link href="numguessstyle_2.css" rel="stylesheet" type="text/css"/>
+      <link id ="styleCola" rel="stylesheet" type="text/css"  href="numguessstyle_2.css"/>
+      <link id ="styleOriginal"  rel="stylesheet" type="text/css" href="numguessstyle.css"/>
 
     <script language="JavaScript">
+
+        function createCssLink(href) {
+            var newLink = document.createElement("link");
+            newLink.setAttribute("id", "styleCola");
+            newLink.setAttribute("rel", "stylesheet");
+            newLink.setAttribute("type", "text/css");
+            newLink.setAttribute("href", href);
+            return newLink;
+        }
+
+        function changeTheme() {
+            var oldCssLink = document.getElementById('styleCola');
+            var currentCss = oldCssLink.getAttribute("href");
+            if (currentCss == 'numguessstyle.css') {
+                var newLink = createCssLink('numguessstyle_2.css')
+                document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
+            }
+            else {
+                var newLink = createCssLink('numguessstyle.css')
+                document.getElementsByTagName("head").item(0).replaceChild(newLink, oldCssLink);
+            }
+        }
 
         function reset(){
             document.getElementById("serverResponse").innerText="";
@@ -84,14 +106,14 @@ FastTrackIT 2015
 
 
   <body>
-
-
   <div id="header">
       <div id="sitebranding">
           <h1>FastTrackIT.org</h1>
       </div>
       <div id="tagline">
-          <p>Welcome to our first Lesson !</p>
+          <p>Welcome to our first Lesson !
+              <input type="button" id="ThemeButton" value="Change theme" onClick="changeTheme()"/>
+          </p>
       </div>
   </div>
   <div id="maincontent">
