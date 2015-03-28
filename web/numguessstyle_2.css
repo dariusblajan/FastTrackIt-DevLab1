@@ -9,29 +9,26 @@ version 1.0
 body {
     background-color: red;
     background-image: url("http://images5.alphacoders.com/346/346393.jpg");
+    background-size: cover;
     font-family: Verdana, Helvetica, Arial, sans-serif;
     line-height: 125%;
     padding: 0;
     margin: 0;
 }
 
-
 h1 {
     font-size: large;
     background-color: red;
-
     color: white;
     padding-top: 2em;
     padding-bottom: .2em;
     padding-left: .4em;
     margin: 0;
-
 }
 
 a{
-    color: green;
+    color: white;
     text-decoration: none;
-
 }
 
 #tagline p {
@@ -52,33 +49,38 @@ a{
     width: 100%;
 }
 
-#navigation {
+#ThemeButton {
+    float: right;
+}
+
+#leftpanel {
     position: absolute;
     top: 110px;
+    left: 475px;
     width: 110px;
     height: 180px;
-    background-color: white;
-    color: black;
+    background-color: red;
+    color: white;
     padding-left: .8em;
 ;
 }
 
 #bodycontent {
     position: absolute;
-    left: 140px;
+    left: 580px;
     top: 120px;
     padding-top:.4em;
     padding-left:2em;
 }
 
-#postcontent {
+#rightpanel {
     position: absolute;
-    left: 360px;
+    left: 800px;
     top: 110px;
     width: 120px;
     height:180px;
-    background-color: white;
-    color: red;
+    background-color: red;
+    color: white;
     padding-left: .8em;
 }
 
@@ -86,7 +88,7 @@ a{
     color:red;
     position: absolute;
     top: 210px;
-    left: 140px;
+    left: 550px;
     width: 200px;
     background-color: white;
     color: black;
